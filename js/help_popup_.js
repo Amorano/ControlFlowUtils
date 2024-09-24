@@ -116,7 +116,7 @@ const create_documentation_stylesheet = () => {
         docElement.classList.add('sie-documentation-popup')
         
         //parse the string from the python node code to html with marked, and sanitize the html with DOMPurify
-        contentWrapper.innerHTML = DOMPurify.sanitize(marked.parse(nodeData.description,))
+        contentWrapper.innerHTML = marked.parse(nodeData.description,) //DOMPurify.sanitize()
 
         // resize handle
         const resizeHandle = document.createElement('div');
@@ -197,7 +197,7 @@ const create_documentation_stylesheet = () => {
       }
       // close the popup
       else if (!this.show_doc && docElement !== null) {
-        docElement.parentNode.removeChild(docElement)
+        docElement.parentNode?.removeChild(docElement)
         docElement = null
       }
       // update position of the popup
